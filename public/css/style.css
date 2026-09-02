@@ -1,0 +1,72 @@
+@font-face {
+  font-family: 'Yomogi';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/yomogi/v13/VuJwdNrS2ZL7rpoPWA.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Zen Loop';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/zenloop/v11/h0GtssK16UsnJwHsEJ9xoQg.ttf) format('truetype');
+}
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  display: block;
+  width: 100%;
+  height: 100vh;
+}
+:root {
+  scroll-behavior: smooth;
+}
+body {
+  background: black;
+  display: flex;
+  flex-flow: column;
+  background: #222;
+}
+h1 {
+  font: 10vmin 'Zen Loop', cursive;
+  color: white;
+  text-shadow: 0 0 2px black;
+  padding: 5vmin;
+  box-sizing: border-box;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  background: black;
+}
+article {
+  box-sizing: border-box;
+  padding: 5vmin;
+  width: 50vw;
+  overflow: hidden;
+  background: #111;
+  color: #ddd;
+  border-radius: 5px;
+  border-block: 2px solid #eee;
+  border-inline: 2px solid #aaa;
+  box-shadow: 0 0 0 5px #000;
+  font-family: 'Yomogi', cursive;
+  place-self: center;
+  margin-block: 10vh;
+}
+article:last-of-type {
+  border-radius: 5px 5px 0 0;
+  border-block-end-width: 0;
+  margin-block: 80vh;
+  -webkit-margin-after: 0;
+          margin-block-end: 0;
+}
+article h2 {
+  font-weight: bold;
+  margin: 1ch 0;
+}
+a {
+  color: inherit;
+}

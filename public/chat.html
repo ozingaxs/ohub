@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ohub Chat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="/css/components.css" />
+  <link rel="stylesheet" href="/css/styler.css" />
+  <link rel="stylesheet" href="/css/chat.css" />
+</head>
+<body>
+  <div id="connectionBanner" class="connection-banner hidden">Disconnected... attempting reconnect</div>
+  <div class="chat-layout">
+    <aside class="sidebar-left">
+      <h1 class="logo">Ohub</h1>
+      <div class="card user-card">
+        <div class="label">You are</div>
+        <div id="usernameDisplay" class="username-display">Anonymous---</div>
+        <span class="badge" id="onlineCount">Online: 0</span>
+      </div>
+      <div class="rooms-header">
+        <h2>Rooms</h2>
+        <button class="btn btn-ghost" id="createRoomBtn">Create Room</button>
+      </div>
+      <ul id="roomList" class="room-list"></ul>
+    </aside>
+
+    <main class="chat-main">
+      <header class="chat-header">
+        <div>
+          <h2 id="currentRoomName">Default</h2>
+          <p id="currentRoomCount">0 users</p>
+        </div>
+        <a class="btn btn-secondary" id="startCallBtn" href="/call.html">Start Call</a>
+      </header>
+
+      <section id="messageFeed" class="message-feed"></section>
+      <div id="typingIndicator" class="typing-indicator"></div>
+
+      <form id="messageForm" class="message-form">
+        <button type="button" id="emojiToggle" class="btn btn-ghost" title="Emoji">😊</button>
+        <button type="button" id="fileButton" class="btn btn-ghost" title="Image">📎</button>
+        <input type="file" id="fileInput" class="hidden" accept="image/png,image/jpeg,image/jpg,image/gif,image/webp" />
+        <textarea id="messageInput" class="input-field" maxlength="500" placeholder="Type message..."></textarea>
+        <button type="submit" class="btn btn-primary">Send</button>
+      </form>
+      <div id="emojiPanel" class="emoji-panel hidden"></div>
+    </main>
+
+    <aside class="sidebar-right" id="usersSidebar">
+      <h3>Active Users</h3>
+      <ul id="roomUsers" class="user-list"></ul>
+    </aside>
+  </div>
+
+  <div id="roomModal" class="modal-backdrop hidden">
+    <div class="modal">
+      <h3>Create Room</h3>
+      <input type="text" id="roomNameInput" class="input-field" maxlength="40" placeholder="Room name" />
+      <input type="password" id="roomPasswordInput" class="input-field spaced-input" maxlength="40" placeholder="Password (optional)" />
+      <label class="ttl-label" for="roomTTLSelect">Disappearing messages</label>
+      <select id="roomTTLSelect" class="input-field">
+        <option value="0">Off</option>
+        <option value="300000">5 minutes</option>
+        <option value="3600000">1 hour</option>
+        <option value="86400000">24 hours</option>
+      </select>
+      <div class="modal-actions">
+        <button id="cancelRoom" class="btn btn-ghost">Cancel</button>
+        <button id="saveRoom" class="btn btn-primary">Create</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script type="module" src="/js/chat.js"></script>
+</body>
+</html>

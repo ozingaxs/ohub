@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>76. </title>
+    <link rel="stylesheet" href="https://public.codepenassets.com/css/reset-2.0.min.css">
+<link rel="stylesheet" href="/css/style.css">
+
+  </head>
+    
+  <body>
+  <a name="top" id="top"></a>
+
+<article>
+  <h2>{ <a href="#about">scroll to bottom</a> }</h2>
+  <p>Th3d1gger behind the terminal | under construction</p>
+</article>
+<article>
+  <h2>{ Enjoy or leave an open < message ></message> }</h2>
+          <a href="/chat.html" class="btn btn-primary">Enter Chat</a>
+        <a href="/call.html" class="btn btn-secondary">Start Call</a>
+</article>
+<article>
+  <h2><a name="about" id="about">About { <a href="#top">Back to Top</a> }</a></h2>
+  <ul> 
+    <li>Code by <a href="//github.com/ollyth3d1gger" target="_top">@th3d1gger</a></li>
+    
+  </ul>
+</article>
+    <script type="module" src="/js/script.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script type="module">
+    const socket = io('/chat');
+    const online = document.getElementById('landingOnline');
+    socket.on('online-count', (count) => {
+      online.textContent = `Online: ${count}`;
+    });
+  </script>
+  </body>
+  
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ohub Call</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="/css/components.css" />
+  <link rel="stylesheet" href="/css/styler.css" />
+  <link rel="stylesheet" href="/css/call.css" />
+</head>
+<body class="call-page">
+  <div id="permissionOverlay" class="permission-overlay">
+    <div class="card">
+      <h2>Camera & Mic Required</h2>
+      <p>Allow browser permissions to join this call.</p>
+      <button id="joinCallBtn" class="btn btn-primary">Join Call</button>
+    </div>
+  </div>
+
+  <header class="call-topbar">
+    <div>
+      <h1>Ohub Call</h1>
+      <p>Room: <span id="roomCodeText"></span> <button id="copyRoomBtn" class="btn btn-ghost">Copy</button></p>
+    </div>
+    <span id="callTimer" class="badge">00:00</span>
+  </header>
+
+  <main class="call-layout">
+    <section id="videoGrid" class="video-grid">
+      <div id="waitingState" class="card waiting-state">Waiting for others...</div>
+      <video id="localVideo" autoplay muted playsinline class="local-video"></video>
+    </section>
+
+    <aside id="callChatPanel" class="call-chat-panel">
+      <h3>In-call chat</h3>
+      <div id="callMessages" class="call-messages"></div>
+      <form id="callMessageForm" class="message-form compact">
+        <input id="callMessageInput" class="input-field" maxlength="300" placeholder="Message participants" />
+        <button class="btn btn-primary" type="submit">Send</button>
+      </form>
+      <h4>Participants</h4>
+      <ul id="participantsList" class="user-list"></ul>
+    </aside>
+  </main>
+
+  <footer class="controls-bar">
+    <button id="muteBtn" class="btn btn-secondary">Mute</button>
+    <button id="cameraBtn" class="btn btn-secondary">Camera Off</button>
+    <button id="screenBtn" class="btn btn-ghost">Share Screen</button>
+    <button id="chatToggleBtn" class="btn btn-ghost">Chat</button>
+    <button id="hangupBtn" class="btn btn-danger">Hang Up</button>
+  </footer>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script type="module" src="/js/call.js"></script>
+</body>
+</html>
